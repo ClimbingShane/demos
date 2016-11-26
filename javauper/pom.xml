@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--
+	<parent>
+        <groupId>com.shane.pkg</groupId>
+        <artifactId>pkg-root</artifactId>
+        <version>1.0.0</version>
+    </parent>
+	-->
+    <groupId>com.shane.javauper</groupId>
+	<artifactId>javauper-main</artifactId>
+	<version>1.1.0-SNAPSHOT</version>
+	<description>Shane Java Uper Main</description>
+	<name>Shane Java Uper Main</name>
+	<packaging>pom</packaging>
+
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <javaVersion>1.7</javaVersion>
+        <targetJavaVersion>1.7</targetJavaVersion>
+    </properties>
+	
+	<modules>
+	<module>javauper-common</module>
+	</modules>
+	
+	<dependencies>
+	</dependencies>
+	
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/../lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>shane-releases</id>
+            <url>http://192.168.106.129:52520/nexus/content/repositories/shane-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>shane-snapshots</id>
+            <url>http://192.168.106.129:52520/nexus/content/repositories/shane-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+</project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+<property>
+    <name>simple.host</name>
+    <value>localhost</value>
+    <description>simple host</description>
+</property>
+
+</configuration>
