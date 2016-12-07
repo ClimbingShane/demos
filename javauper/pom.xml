@@ -26,7 +26,8 @@
     </properties>
 	
 	<modules>
-	<module>javauper-common</module>
+        <module>javauper-demos</module>
+        <module>javauper-common</module>
 	</modules>
 	
 	<dependencies>
